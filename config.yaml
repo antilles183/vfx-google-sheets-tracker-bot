@@ -1,0 +1,31 @@
+google:
+  credentials_file: credentials.json
+  sheet_id: "${SHEET_ID}"
+  sheet_name: "VFX SHOTS"
+  header_row: 2              # 1-indexed row that contains column headers
+  monitored_columns:
+    - STATUS
+  artist_column: ARTIST      # column containing the artist name
+  artist_statuses:           # statuses that trigger notification to the artist
+    - ACTIVE
+    - FINAL
+
+email:
+  sender: "${EMAIL_SENDER}"
+  smtp_host: smtp.gmail.com
+  smtp_port: 587
+  artist_emails:             # artist name -> email mapping
+    _Andrew: "${ARTIST_ANDREW_EMAIL}"
+    _Scott: "${ARTIST_SCOTT_EMAIL}"
+    _Jason: "${ARTIST_JASON_EMAIL}"
+    _CT: "${ARTIST_CT_EMAIL}"
+  status_recipients:         # fixed recipients for other statuses
+    REVIEW:
+      - "${REVIEW_RECIPIENT_1}"
+      - "${REVIEW_RECIPIENT_2}"
+    DELIVERED:
+      - "${DELIVERED_RECIPIENT_1}"
+      - "${DELIVERED_RECIPIENT_2}"
+
+state:
+  file: state.json
