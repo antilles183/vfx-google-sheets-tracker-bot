@@ -101,7 +101,17 @@ def main() -> None:
                 else:
                     log.warning("%s has no email mapped for artist %r — add to artist_emails in config", shot_id, artist_name)
             else:
-                recipients = status_recipients.get(new_status, [])
+                recipients = list(status_recipients.get(new_status, []))
+
+                # For DELIVERED, also notify the artist
+                if new_status == "DELIVERED":
+                    artist_name = change["row"].get(artist_col, "").strip()
+                    artist_email = artist_emails.get(artist_name)
+                    if artist_email and artist_email not in recipients:
+                        recipients.append(artist_email)
+                    elif not artist_email:
+                        log.warning("%s has no email mapped for artist %r", shot_id, artist_name)
+
                 if recipients:
                     for recipient in recipients:
                         send_email(smtp, sender, recipient, subject, body)
