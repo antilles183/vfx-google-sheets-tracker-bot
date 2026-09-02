@@ -24,7 +24,7 @@ First run establishes a baseline in `state.json` — no emails sent. Subsequent 
 
 Cron example:
 ```
-*/15 * * * * /usr/bin/python3 /path/to/main.py >> /var/log/boat-lift.log 2>&1
+*/15 * * * * /usr/bin/python3 /path/to/main.py >> /var/log/project-id.log 2>&1
 ```
 
 ## Architecture

@@ -1,4 +1,4 @@
-# Boat Lift VFX Tracker Bot
+# Google Sheets VFX Tracker Bot
 
 Monitors a Google Sheet for VFX shot status changes and sends notification emails to the relevant recipients. Designed to run as a cron job.
 
@@ -70,7 +70,7 @@ The first run saves a baseline snapshot and sends no emails. Subsequent runs onl
 To run every 2 minutes, add to crontab (`crontab -e`):
 
 ```
-*/2 * * * * cd /path/to/boat-lift-tracker-bot && venv/bin/python main.py >> /tmp/boat-lift.log 2>&1
+*/2 * * * * cd /path/to/project-id-tracker-bot && venv/bin/python main.py >> /tmp/project-id.log 2>&1
 ```
 
 Start the cron service if not running:
