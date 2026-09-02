@@ -1,0 +1,12 @@
+# cron entry
+# Copy the line below into `crontab -e`, adjusting the path and schedule for your deployment.
+#
+#   *    *    *    *    *  command to be executed
+#   ┬    ┬    ┬    ┬    ┬
+#   │    │    │    │    └───── day of week (0-7)
+#   │    │    │    └────────── month (1-12)
+#   │    │    └─────────────── day of month (1-31)
+#   │    └──────────────────── hour (0-23)
+#   └───────────────────────── minute (0-59)
+
+*/2 * * * * cd /path/to/project-dir && venv/bin/python main.py >> /var/log/project-id.log 2>&1
