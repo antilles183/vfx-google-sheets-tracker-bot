@@ -1,5 +1,6 @@
 credentials.json
 state.json
+.cronjob
 __pycache__/
 *.pyc
 .env
