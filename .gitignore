@@ -1,6 +1,7 @@
 credentials.json
 state.json
 .cronjob
+gitleaks.toml
 __pycache__/
 *.pyc
 .env
